@@ -1,5 +1,43 @@
 <template>
+
   <div>
+    
+    <el-dialog
+      title="设置涨跌停限制"
+      v-bind:visible.sync="dialogSetingVisible"
+      width="30%">
+      <el-form
+        :model="passForm"
+          status-icon
+        ref="passForm"
+        label-width="0px"
+        class="demo-ruleForm">
+        <el-form-item label="">
+          <el-input
+            :type="'text'"
+            v-model="passForm.newPass"
+            placeholder="单位：元">
+          </el-input>
+        </el-form-item>
+        <el-form-item label="" prop="checkPass">
+          <template>
+            <el-select v-model="value" placeholder="请选择">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </template>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button size="mini" v-on:click="dialogSetingVisible = false">取 消</el-button>
+        <el-button size="mini" type="primary" v-on:click="dialogSetingVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
+
     <h1>查看股票</h1>
     <el-table :data="tableData">
       <el-table-column type="expand">
@@ -24,10 +62,11 @@
       </el-table-column>
       <el-table-column label="操作" min-width="220">
         <template slot-scope="scope">
-          <el-button size="mini">设置涨跌停限制</el-button>
+          <el-button size="mini" @click="dialogSetingVisible = true">设置涨跌停限制</el-button>
           <el-button size="mini" v-if="scope.row.status=='正常'">暂停交易</el-button>
           <el-button size="mini" v-else>重启交易</el-button>
         </template>
+        
       </el-table-column>
     </el-table>
   </div>
@@ -38,6 +77,21 @@ export default {
   name: "Stock",
   data() {
     return {
+      passForm:{
+        oldPass:'',
+        newPass:'',
+        checkPass:''
+      },
+      dialogSetingVisible: false,
+      options: [{
+          value: '0',
+          label: '涨停限制'
+        }, {
+          value: '1',
+          label: '跌停限制'
+        },
+      ],
+      value: '',
       tableData: [
         {
           id: "300059",
