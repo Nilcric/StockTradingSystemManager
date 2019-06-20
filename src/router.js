@@ -28,6 +28,16 @@ export default new Router({
             component: () => import('./views/Stock')
         },
         {
+            path: "/ViewBuyInstructions",
+            name: "ViewBuyInstructions",
+            component: () => import('./views/ViewBuyInstructions')
+        },
+        {
+            path: "/ViewSellInstructions",
+            name: "ViewSellInstructions",
+            component: () => import('./views/ViewSellInstructions')
+        },
+        {
             path: "/Finance",
             name: "Finance",
             component: () => import('./views/Finance')
