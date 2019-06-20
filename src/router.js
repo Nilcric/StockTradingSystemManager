@@ -73,6 +73,11 @@ export default new Router({
             component: () => import('./views/Setting')
         },
         {
+            path: "/Claim",
+            name: "Claim",
+            component: () => import('./views/Claim')
+        },
+        {
             path: "/Alert",
             name: "Alert",
             component: () => import('./views/Alert')

@@ -20,7 +20,7 @@
       <i class="el-icon-s-marketing"/>
       <span slot="title">查看卖指令</span>
     </el-menu-item>
-    <el-menu-item index="claim">
+    <el-menu-item index="Claim">
       <i class="el-icon-key"/>
       <span slot="title">修改密码</span>
     </el-menu-item>
