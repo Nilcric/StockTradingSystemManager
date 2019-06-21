@@ -2,7 +2,7 @@
   <el-menu default-active="2" class="el-menu-vertical-demo" :router="true">
     <el-menu-item index="/">
       <i class="el-icon-menu"/>
-      <span slot="title">Hello World 页（测试用）</span>
+      <span slot="title">交易管理系统</span>
     </el-menu-item>
     <el-menu-item index="/Home">
       <i class="el-icon-s-home"/>
