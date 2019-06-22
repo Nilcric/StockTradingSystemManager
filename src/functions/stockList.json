@@ -1,0 +1,94 @@
+{
+    "infos": [
+        {
+            "stockid": 300059,
+            "name": "东方财富",
+            "price": 12.32,
+            "status": true,
+            "limitup": 10.3,
+            "limitdown": 12.81,
+            "announcement": ""
+        },
+        {
+            "stockid": 1,
+            "name": "百度",
+            "price": 10.23,
+            "status": true,
+            "limitup": 12.12,
+            "limitdown": 9.74,
+            "announcement": ""
+        },
+        {
+            "stockid": 20,
+            "name": "Google",
+            "price": 13.2,
+            "status": true,
+            "limitup": 12.45,
+            "limitdown": 12.2,
+            "announcement": ""
+        },
+        {
+            "stockid": 2145,
+            "name": "抖音",
+            "price": 7.88,
+            "status": true,
+            "limitup": 8.60,
+            "limitdown": 7.10,
+            "announcement": ""
+        },
+        {
+            "stockid": 2131,
+            "name": "利欧股份",
+            "price": 4.75,
+            "status": false,
+            "limitup": 562,
+            "limitdown": 1.1,
+            "announcement": ""
+        },
+        {
+            "stockid": 62177,
+            "name": "杭州天地(集团)股份有限公司",
+            "price": 60.54,
+            "status": false,
+            "limitup": 0.00,
+            "limitdown": 50.25,
+            "announcement": ""
+        },
+        {
+            "stockid": 36891,
+            "name": "上海开发集团",
+            "price": 46.23,
+            "status": true,
+            "limitup": 5.23,
+            "limitdown": 5.1,
+            "announcement": ""
+        },
+        {
+            "stockid": 6452,
+            "name": "康佳集团股份有限公司",
+            "price": 6.23,
+            "status": false,
+            "limitup": 6.23,
+            "limitdown": 5.1,
+            "announcement": ""
+        },
+        {
+            "stockid": 761345,
+            "name": "腾讯",
+            "price": 95.54,
+            "status": true,
+            "limitup": 10.12,
+            "limitdown": 8.92,
+            "announcement": ""
+        },
+        {
+            "stockid": 475,
+            "name": "乌镇土地发展有限公司",
+            "price": 0.00,
+            "status": true,
+            "limitup": 0.00,
+            "limitdown": 0.00,
+            "announcement": ""
+        }
+    ]
+}

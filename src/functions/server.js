@@ -8,40 +8,62 @@ const log = function (...text) {
     console.log('[Server]', ...text)
 }
 
-const stockList = function (data, success, failure) {
-    axios.post(stockServer + 'stocklist', {
+const getStockList = function (data, success, failure) {
+    axios.post(stockServer + 'manage/stocklist', {
         auth: localStorage['accessToken'],
         from: data.from,
-        to: data.to,
+        to: data.to
     }).then(response => {
-        log(response.data);
-        success(response.data);
+        if (response.data.successful) {
+            success(response.data.data);
+        }
+        else {
+            failure(response.data.data);
+        }
     })
+    if (Math.random() > 0.1) {
+        success(require('./stockList.json'));
+    }
+    else {
+        failure("为什么会失败呢，因为只是测试而已。");
+    }
 }
 
-const stockStatus = function (data, success, failure) {
+const setStockStatus = function (data, success, failure) {
     axios.post(stockServer + 'stockstatus', {
         auth: localStorage['accessToken'],
+        stockid: data.id,
         status: data.status,
     }).then(response => {
-        log(response.data);
-        success(response.data);
+        if (response.data.successful) {
+            success(response.data.data);
+        }
+        else {
+            failure(response.data.data);
+        }
     })
+    success();
 }
 
-const stockLimit = function (data, success, failure) {
+const setStockLimit = function (data, success, failure) {
     axios.post(stockServer + 'stocklimit', {
         auth: localStorage['accessToken'],
+        stockid: data.id,
         limitup: data.limitup,
         limitdown: data.limitdown,
     }).then(response => {
-        log(response.data);
-        success(response.data);
+        if (response.data.successful) {
+            success(response.data.data);
+        }
+        else {
+            failure(response.data.data);
+        }
     })
+    success();
 }
 
 export default {
-    stockList,
-    stockStatus,
-    stockLimit,
+    getStockList,
+    setStockStatus,
+    setStockLimit,
 }
