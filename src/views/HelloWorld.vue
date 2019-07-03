@@ -1,37 +1,36 @@
 
 <template>
-<div class="demo-image">
-  <h1 >欢迎来到股票交易系统 - 管理客户端</h1>
-  
-<i class="el-icon-edit"></i><i class="el-icon-user"></i>
-<h5 style="font-family:'PingFang SC';color:#409EFF ">请按照规定对股票与交易进行管理</h5>
+  <div class="demo-image">
+    <h1>欢迎来到股票交易系统 - 管理客户端</h1>
 
-<p></p>
-  <div class="block">
-    <el-image :src="url">
-      <div slot="placeholder" class="image-slot">
-        加载中<span class="dot">...</span>
-      </div>
-    </el-image>
+    <i class="el-icon-edit"></i>
+    <i class="el-icon-user"></i>
+    <h5 style="font-family:'PingFang SC';color:#409EFF ">请按照规定对股票与交易进行管理</h5>
+
+    <p></p>
+    <div class="block">
+      <el-image :src="url">
+        <div slot="placeholder" class="image-slot">
+          加载中
+          <span class="dot">...</span>
+        </div>
+      </el-image>
+    </div>
   </div>
-</div>
-
-
 </template>
 
 
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   data() {
-      return {
-        fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
-        url: require("../assets/hello.png")
-      }
+    return {
+      fits: ["fill", "contain", "cover", "none", "scale-down"],
+      url: require("../assets/logo.png")
+    };
   }
-  
-}
+};
 </script>
 
 

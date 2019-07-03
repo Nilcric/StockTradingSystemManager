@@ -1,13 +1,21 @@
 import axios from 'axios';
 
-const accountServer = '/';
-const stockServer = '/';
+const accountServer = 'http://47.97.74.128:8080/';
+const stockServer = 'http://q.xiexun.tech:8877/';
 
-const log = function (...text) {
-    // eslint-disable-next-line
-    console.log('[Server]', ...text)
+const login = function (username, password, success, failure) {
+    axios.post(accountServer + 'security_admin/login', {
+        id: username,
+        password: password,
+    }).then(response => {
+        if (response.data.error_code === 0) {
+            success(response.data);
+        }
+        else {
+            failure(response.data);
+        }
+    })
 }
-
 const getStockList = function (data, success, failure) {
     axios.post(stockServer + 'manage/stocklist', {
         auth: localStorage['accessToken'],
@@ -21,12 +29,6 @@ const getStockList = function (data, success, failure) {
             failure(response.data.data);
         }
     })
-    if (Math.random() > 0.1) {
-        success(require('./stockList.json'));
-    }
-    else {
-        failure("为什么会失败呢，因为只是测试而已。");
-    }
 }
 
 const setStockStatus = function (data, success, failure) {
@@ -63,6 +65,7 @@ const setStockLimit = function (data, success, failure) {
 }
 
 export default {
+    login,
     getStockList,
     setStockStatus,
     setStockLimit,

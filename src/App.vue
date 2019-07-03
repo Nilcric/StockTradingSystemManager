@@ -1,13 +1,22 @@
 <template>
-  <div id="app">
+  <div v-if="authenticated" id="app">
     <div class="view">
-      <router-view/>
+      <router-view />
     </div>
     <div class="nav">
-      <Nav id="nav"/>
+      <Nav id="nav" />
     </div>
     <div class="header">
-      <Header/>
+      <Header />
+    </div>
+  </div>
+
+  <div v-else>
+    <div class="login-view">
+      <Login />
+    </div>
+    <div class="header">
+      <Header />
     </div>
   </div>
 </template>
@@ -15,12 +24,28 @@
 <script>
 import Nav from "./components/Nav";
 import Header from "./components/Header";
+import Login from "./views/Login";
 
 export default {
   name: "app",
   components: {
     Nav,
-    Header
+    Header,
+    Login
+  },
+  data() {
+    return {
+      authenticated: false
+    };
+  },
+  mounted() {
+    this.$root.$on("login", () => {
+      this.authenticated = true;
+    });
+    this.$root.$on("logout", () => {
+      localStorage["username"] = "";
+      this.authenticated = false;
+    });
   }
 };
 </script>
@@ -41,6 +66,13 @@ p {
   color: #606266;
   line-height: 1.5em;
   padding: 0.5em 0;
+}
+
+.el-notification {
+  h2,
+  p {
+    padding: 0;
+  }
 }
 
 * {
@@ -77,5 +109,14 @@ p {
 .view {
   padding: 64px 0 0 256px;
   margin: 16px;
+}
+
+.login-view {
+  padding: 64px 0 0 0;
+  margin: 16px;
+}
+
+body {
+  background-color: rgb(233, 233, 235);
 }
 </style>
