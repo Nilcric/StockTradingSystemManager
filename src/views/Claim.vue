@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import server from "@/functions/server";
 export default {
   name: "Login",
   data() {
@@ -34,7 +35,15 @@ export default {
       }
     };
   },
-  methods: {}
+  methods: {
+    onSubmit() {
+      this.$notify({
+        title: "修改密码失败",
+        type: "error",
+        offset: 64
+      });
+    }
+  }
 };
 </script>
 
